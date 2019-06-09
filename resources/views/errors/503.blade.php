@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 		<style>
 			body {
@@ -26,20 +26,15 @@
 			}
 
 			.title {
-				font-size: 96px;
+				font-size: 72px;
 				margin-bottom: 40px;
-			}
-
-			.quote {
-				font-size: 24px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="title">Be right back.</div>
 			</div>
 		</div>
 	</body>
