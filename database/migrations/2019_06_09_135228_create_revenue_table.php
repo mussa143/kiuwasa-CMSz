@@ -15,6 +15,9 @@ class CreateRevenueTable extends Migration
     {
         Schema::create('revenue', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type');
+            $table->string('amount');
+            $table->timestamp('customer');
             $table->timestamps();
         });
     }

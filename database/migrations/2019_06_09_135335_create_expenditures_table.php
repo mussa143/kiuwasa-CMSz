@@ -15,6 +15,9 @@ class CreateExpendituresTable extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type');
+            $table->string('amount');
+            $table->string('staff');
             $table->timestamps();
         });
     }
