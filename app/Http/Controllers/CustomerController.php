@@ -26,7 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        App\Customer::create($input);
+        Session::flash('flash_message', 'Customer successfully added!');
+    
+        return redirect()->back();
     }
 
     /**
@@ -59,9 +64,13 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+    $customers = App\Customer::findOrFail($id);
+
+    return view('customer.edit')->withcustomers($customers);
     }
 
+     
     /**
      * Update the specified resource in storage.
      *

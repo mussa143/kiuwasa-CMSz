@@ -2,7 +2,7 @@
 @section('page_heading','CUSTOMERS')
 @section('section')
 <div class="row">
-<a href="" class='btn btn-primary'>Add new Customer</a>
+<a href="{{ url('cuscreate')}}" class='btn btn-primary'>Add new Customer</a>
 	<div class="col-md-8 col-md-offset-2">
     <h3>Registered Customers</h3>
     <div class="card-body">
@@ -26,7 +26,7 @@
             <td>{{ $customer->zone}}</td>
             <td>
             <a href="" class='btn btn-success btn-xs'>view</a>
-            <a href="" class='btn btn-warning btn-xs'>edit</a>
+            <a href="{{ route('editcus', $customer->id) }}" class='btn btn-warning btn-xs'>edit</a>
             <a href="" class='btn btn-danger btn-xs'>delete</a>
             </td>
 		</tr>
