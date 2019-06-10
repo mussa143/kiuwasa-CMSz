@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/blank', function () {
+    return view('blank');
+});
+
 Auth::routes();
+
+Route::get('/customer', 'CustomerController@index')->name('customer');
+
+Route::get('/revenue', 'RevenueController@index')->name('revenue');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

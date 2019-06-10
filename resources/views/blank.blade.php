@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
-@section('page_heading','Blank')
+@section('page_heading','CUSTOMERS')
 @section('section')
-           
-           
+                  
             
 @stop
