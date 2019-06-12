@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Revenue;
-use App\Rcategory;
-use App\Customer;
-
-class RevenueController extends Controller
+use App\Sources;
+class SourcesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,8 @@ class RevenueController extends Controller
      */
     public function index()
     {
-        $revenues = Revenue::paginate(4);
-        return view('revenue.index', compact('revenues'));
+        $sources = Sources::paginate(4);
+        return view('sources.index', compact('sources'));
     }
 
     /**
@@ -27,9 +24,7 @@ class RevenueController extends Controller
      */
     public function create()
     {
-        $category = Rcategory::all();
-        $cus = Customer::all();
-        return view('revenue.create', compact('category','cus'));
+        return view('sources.create');
     }
 
     /**
@@ -40,20 +35,7 @@ class RevenueController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'type'=>'required',
-            'amount'=> 'required',
-            'customer'=> 'required'
-            
-          ]);
-          $cat= new Revenue([
-            'type' => $request->get('type'),
-            'amount'=> $request->get('amount'),
-            'customer'=> $request->get('customer'),
-          ]);
-          $cat->save();
-
-          return redirect('/revenue')->with('flash_message', 'New Revenue Record has been added!');
+        //
     }
 
     /**

@@ -261,7 +261,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('*sources') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('sources') }}"><i class="fa fa-bitbucket fa-fw"></i> Water Sources</a>
+                            <a href="{{ route ('source.index') }}"><i class="fa fa-bitbucket fa-fw"></i> Water Sources</a>
                         </li>
                         <li {{ (Request::is('*revenue') ? 'class="active"' : '') }}>
                             <a href="{{ url ('revenue') }}"><i class="fa fa-money fa-fw"></i> Revenue</a>

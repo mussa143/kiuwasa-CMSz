@@ -22,6 +22,9 @@ Route::get('/blank', function () {
 Auth::routes();
 
 Route::resource('customer','CustomerController');
+Route::resource('source','SourcesController');
+Route::resource('revenue','RevenueController');
+Route::resource('rcategory','RcategoriesController');
 
 Route::get('/revenue', 'RevenueController@index')->name('revenue');
 

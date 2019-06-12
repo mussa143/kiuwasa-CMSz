@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Revenue;
 use App\Rcategory;
-use App\Customer;
 
-class RevenueController extends Controller
+class RcategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class RevenueController extends Controller
      */
     public function index()
     {
-        $revenues = Revenue::paginate(4);
-        return view('revenue.index', compact('revenues'));
+        $rcategory = Rcategory::paginate(4);
+        return view('revenue.categories.index', compact('rcategory'));
     }
 
     /**
@@ -27,9 +25,7 @@ class RevenueController extends Controller
      */
     public function create()
     {
-        $category = Rcategory::all();
-        $cus = Customer::all();
-        return view('revenue.create', compact('category','cus'));
+        return view('revenue.categories.create');
     }
 
     /**
@@ -41,19 +37,17 @@ class RevenueController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type'=>'required',
-            'amount'=> 'required',
-            'customer'=> 'required'
+            'name'=>'required',
+            'description'=> 'required',
             
           ]);
-          $cat= new Revenue([
-            'type' => $request->get('type'),
-            'amount'=> $request->get('amount'),
-            'customer'=> $request->get('customer'),
+          $cat= new Rcategory([
+            'name' => $request->get('name'),
+            'description'=> $request->get('description'),
           ]);
           $cat->save();
 
-          return redirect('/revenue')->with('flash_message', 'New Revenue Record has been added!');
+          return redirect('/rcategory')->with('flash_message', 'New Category has been added!');
     }
 
     /**
