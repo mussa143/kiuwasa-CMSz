@@ -7,7 +7,9 @@
         {{ Session::get('flash_message') }}
     </div>
 @endif
-      <form action="{{ url('cusreg')}}" method="GET">
+      <form action="{{ route('customer.store')}}" method='POST'>
+      @method('POST')
+        @csrf
       <input type="text" name="cname" placeholder="Customer Name" class="form-control"> <BR>
       <input type="text" name="adress" placeholder="Customer Address" class="form-control"> <BR>
       <input type="text" name="zone" placeholder="Customer Zone" class="form-control"> <BR>

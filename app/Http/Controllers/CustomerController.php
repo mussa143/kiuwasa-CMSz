@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = App\Customer::all();
+        $customers = Customer::paginate(4);
     
             return view('customer.index', compact('customers'));
     }
@@ -37,12 +37,19 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
+        $request->validate([
+            'cname'=>'required',
+            'adress'=> 'required',
+            'zone' => 'required'
+          ]);
+          $customer = new Customer([
+            'cname' => $request->get('cname'),
+            'adress'=> $request->get('adress'),
+            'zone'=> $request->get('zone')
+          ]);
+          $customer->save();
 
-        App\Customer::create($input);
-        Session::flash('flash_message', 'Customer successfully added!');
-    
-        return redirect()->back();
+          return redirect('/customer')->with('flash_message', 'customer info has been added!');
     }
 
     /**
@@ -53,7 +60,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customers = Customer::findOrFail($id);
+
+        return view('customer.show')->withcustomers($customers);
     }
 
     /**
@@ -65,7 +74,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         
-    $customers = App\Customer::findOrFail($id);
+    $customers = Customer::findOrFail($id);
 
     return view('customer.edit')->withcustomers($customers);
     }
@@ -80,7 +89,19 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'cname'=>'required',
+            'adress'=> 'required',
+            'zone' => 'required'
+          ]);
+    
+          $customer = Customer::find($id);
+          $customer->cname = $request->get('cname');
+          $customer->adress = $request->get('adress');
+          $customer->zone = $request->get('zone');
+          $customer->save();
+    
+          return redirect('/customer')->with('flash_message', 'customer info has been updated!');
     }
 
     /**
@@ -91,6 +112,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Customer::find($id);
+        $record->delete();
+   
+        return redirect('/customer')->with('flash_message', 'Customer has been deleted Successfully');
     }
 }

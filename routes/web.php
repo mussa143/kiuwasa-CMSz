@@ -21,10 +21,7 @@ Route::get('/blank', function () {
 
 Auth::routes();
 
-Route::get('/customer', 'CustomerController@index')->name('customer');
-Route::get('/cuscreate', 'CustomerController@create')->name('cuscreate');
-Route::get('/editcus/{$id}', 'CustomerController@edit')->name('editcus');
-Route::get('/cusreg', 'CustomerController@store')->name('cusreg');
+Route::resource('customer','CustomerController');
 
 Route::get('/revenue', 'RevenueController@index')->name('revenue');
 
