@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Customer;
+use App\Revenue;
+use App\Expenditure;
 
 class SearchController extends Controller
 {
@@ -11,13 +14,20 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function searchs(Request $request)
     {
-$customers = Customer::where('cname','$search');
-$revenues = Revenue::where('type','$search');
-$expenditures = Expenditure::where('type','$search');
+        $search = $request->get('search');
+$customers = Customer::where('cname','like','%'.$search.'%')->paginate(10);
 
-return view('search', compact('customers', 'revenues', 'expenditures'));
+return view('search', compact('customers',));
+    }
+
+    public function searchr(Request $request)
+    {
+        $search = $request->get('search');
+$revenues = Revenue::where('type','like','%'.$search.'%')->paginate(10);
+
+return view('revenue.index', compact('revenues'));
     }
 
     /**

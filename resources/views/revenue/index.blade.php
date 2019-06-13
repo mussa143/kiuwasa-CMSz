@@ -9,7 +9,21 @@
 @endif
 <a href="{{ route('revenue.create')}}" class='btn btn-primary'>Add Revenue Records</a>
 <a href="{{ route('rcategory.index')}}" class='btn btn-primary'>Categories</a>
-<a href="{{ route('rcategory.index')}}" class='btn btn-primary'>Unpaid Bills</a>
+<a href="{{ route('revenue')}}" class='btn btn-primary'>View All</a>
+<div class="col-md-4 col-md-offset-2">
+<form action="/revsearch" method="HEAD">
+                        @method('HEAD')
+                          @csrf
+                        <div class="input-group custom-search-form">
+                                <input type="search" name="search" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                        </form>
+                            </span>
+                            </div>
+</div>
 <div class="col-sm-12">
     <h3>Collected Revenue</h3>
     <div class="card-body">

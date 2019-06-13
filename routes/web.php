@@ -26,9 +26,11 @@ Route::resource('source','SourcesController');
 Route::resource('revenue','RevenueController');
 Route::resource('rcategory','RcategoriesController');
 Route::resource('zone','ZonesController');
-Route::resource('search','SearchController');
+
 
 Route::get('/revenue', 'RevenueController@index')->name('revenue');
+Route::get('/search','SearchController@searchs');
+Route::get('/revsearch','SearchController@searchr');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
