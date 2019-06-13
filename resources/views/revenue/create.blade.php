@@ -12,6 +12,7 @@
         @csrf
         <label for="type">Revenue Type</label>
       <select name='type' placeholder="Select Revenue category" class="form-control fa fa-dropdown">
+      <option value="">Select Category Name</option>
       @foreach($category as $list)
       <option value="{{$list->name}}">{{$list->name}}</option>
       @endforeach

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Sources;
-class SourcesController extends Controller
+
+class ZonesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class SourcesController extends Controller
      */
     public function index()
     {
-        $sources = Sources::paginate(4);
-        return view('sources.index', compact('sources'));
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class SourcesController extends Controller
      */
     public function create()
     {
-        return view('sources.create');
+        //
     }
 
     /**
@@ -35,20 +34,7 @@ class SourcesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'type'=>'required',
-            'sname'=>'required',
-            'capacity'=> 'required',
-            
-          ]);
-          $source= new Sources([
-            'type' => $request->get('type'),
-            'sname' => $request->get('sname'),
-            'qty'=> $request->get('capacity'),
-          ]);
-          $source->save();
-
-          return redirect('/source')->with('flash_message', 'New Source has been added!');
+        //
     }
 
     /**
