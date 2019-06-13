@@ -53,6 +53,7 @@ class CustomerController extends Controller
     }
 
     /**
+     * 
      * Display the specified resource.
      *
      * @param  int  $id
