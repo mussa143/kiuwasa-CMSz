@@ -243,12 +243,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                        <form action="{{ route('search.index')}}" method="post">
+                        @method('POST')
+                          @csrf
+                        <div class="input-group custom-search-form">
+                                <input type="text" name="search" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
+                        </form>
                             </span>
                             </div>
                             <!-- /input-group -->
@@ -265,6 +269,9 @@
                         </li>
                         <li {{ (Request::is('*revenue') ? 'class="active"' : '') }}>
                             <a href="{{ url ('revenue') }}"><i class="fa fa-money fa-fw"></i> Revenue</a>
+                        </li>
+                        <li {{ (Request::is('*zone') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('zone') }}"><i class="fa fa-globe fa-fw"></i> Zones</a>
                         </li>
                         <li >
                             <a href="#"><i class="fa fa-credit-card fa-fw"></i> Expenditures<span class="fa arrow"></span></a>

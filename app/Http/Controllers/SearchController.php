@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Zone;
 
-class ZonesController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,11 @@ class ZonesController extends Controller
      */
     public function index()
     {
-        
-        $zones = Zone::all();
-        return view('zones.index', compact('zones'));
+$customers = Customer::where('cname','$search');
+$revenues = Revenue::where('type','$search');
+$expenditures = Expenditure::where('type','$search');
+
+return view('search', compact('customers', 'revenues', 'expenditures'));
     }
 
     /**
@@ -26,7 +27,7 @@ class ZonesController extends Controller
      */
     public function create()
     {
-        return view('zones.create');
+        //
     }
 
     /**
@@ -37,16 +38,7 @@ class ZonesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'zname'=>'required',
-            
-          ]);
-          $zones= new Zone([
-            'zname' => $request->get('zname'),
-          ]);
-          $zones->save();
-
-          return redirect('/zone')->with('flash_message', 'New Zone has been successfuly added!');
+        //
     }
 
     /**
