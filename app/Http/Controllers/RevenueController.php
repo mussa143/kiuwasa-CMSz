@@ -75,7 +75,9 @@ class RevenueController extends Controller
      */
     public function edit($id)
     {
-        //
+        $revenues = Revenue::findOrFail($id);
+
+        return view('revenue.edit')->withrevenues($revenues);
     }
 
     /**
@@ -87,7 +89,19 @@ class RevenueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'type'=>'required',
+            'amount'=> 'required',
+            'customer' => 'required'
+          ]);
+    
+          $revenues = Revenue::find($id);
+          $revenues->type = $request->get('type');
+          $revenues->amount = $request->get('amount');
+          $revenues->customer = $request->get('customer');
+          $revenues->save();
+    
+          return redirect()->back()->with('flash_message', 'info has been updated!');
     }
 
     /**
@@ -98,6 +112,9 @@ class RevenueController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Revenue::find($id);
+        $record->delete();
+   
+        return redirect('/revenue')->with('flash_message', 'Record has been deleted Successfully');
     }
 }

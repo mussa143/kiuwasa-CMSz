@@ -68,7 +68,9 @@ class ZonesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $zones = Zone::findOrFail($id);
+
+        return view('zones.edit')->withzones($zones);
     }
 
     /**
@@ -80,7 +82,15 @@ class ZonesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'zname'=>'required',
+          ]);
+    
+          $zone = Zone::find($id);;
+          $zone->zname = $request->get('zname');
+          $zone->save();
+    
+          return redirect('/zone')->with('flash_message', 'zone info has been updated!');
     }
 
     /**
@@ -91,6 +101,9 @@ class ZonesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Zone::find($id);
+        $record->delete();
+   
+        return redirect('/zone')->with('flash_message', 'Zone name has been deleted Successfully');
     }
 }

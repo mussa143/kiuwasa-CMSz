@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('page_heading','Add Revenue Categories')
+@section('page_heading','Add Zone')
 @section('section')
       <div class="col-md-8">
       @if(Session::has('flash_message'))

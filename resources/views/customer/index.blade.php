@@ -1,9 +1,7 @@
 @extends('layouts.dashboard')
 @section('page_heading','CUSTOMERS')
 @section('section')
-<a href="{{ route('customer.create')}}" class='btn pull-right btn-lg btn-primary'>Add new Customer</a>
-<a href="{{ route('customer.create')}}" class='btn btn-lg btn-primary'>PAID</a>
-<a href="{{ route('customer.create')}}" class='btn pull-right btn-lg btn-primary'>NOT PAID</a>
+<a href="{{ route('customer.create')}}" class='btn pull-right btn-lg btn-info'>Add new Customer</a>
 <div class="row">
 @if(Session::has('flash_message'))
     <div class="alert alert-success">

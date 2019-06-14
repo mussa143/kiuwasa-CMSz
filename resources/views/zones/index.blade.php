@@ -25,8 +25,8 @@
 		<tr>
 			<td>{{ $zone->id}}</td>
 			<td>{{ $zone->zname}}</td>
-            <td style="width:20%">
-            <a href="{{ route('zone.show', $zone->id) }}" class='btn btn-success pull-right fa fa-play btn-s'> view</a>
+            <td style="width:10%">
+           
             <a href="{{ route('zone.edit', $zone->id) }}" class='btn btn-warning pull-right fa fa-edit btn-s'> edit</a>
 			<td style="width:10%">
             <form action="{{ route('zone.destroy', $zone->id)}}" method="post">

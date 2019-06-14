@@ -21,7 +21,11 @@ Route::get('/blank', function () {
 
 Auth::routes();
 
-Route::resource('customer','CustomerController');
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::resource('customer','CustomerController');
+});
+
+
 Route::resource('source','SourcesController');
 Route::resource('revenue','RevenueController');
 Route::resource('rcategory','RcategoriesController');
