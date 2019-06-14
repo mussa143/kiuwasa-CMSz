@@ -7,7 +7,9 @@
         {{ Session::get('flash_message') }}
     </div>
 @endif
+@if(Auth::user('type')=='admin')  
 <a href="{{ route('revenue.create')}}" class='btn btn-primary'>Add Revenue Records</a>
+@endif
 <a href="{{ route('rcategory.index')}}" class='btn btn-primary'>Categories</a>
 <a href="{{ route('revenue')}}" class='btn btn-primary'>View All</a>
 <div class="col-md-4 col-md-offset-2">
@@ -46,16 +48,20 @@
 			<td>{{ $revenue->amount}}</td>
             <td>{{ $revenue->customer}}</td>
             <td>
+             
             <a href="{{ route('revenue.show', $revenue->id) }}" class='btn btn-success pull-right fa fa-play btn-s'> view</a>
+            @if(Auth::user('type')=='admin')  
             <a href="{{ route('revenue.edit', $revenue->id) }}" class='btn btn-warning pull-right  fa fa-edit btn-s'> edit</a>
-			<td>
+			@endif
+            @if(Auth::user('type')=='admin')  
+            <td>
 			<form action="{{ route('revenue.destroy', $revenue->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger fa fa-eraser btn-s" type="submit"> Delete</button>
                 </form>
 			</td>
-
+          @endif
             </td>
 		</tr>
     @endforeach

@@ -260,11 +260,11 @@
                         <li {{ (Request::is('/home') ? 'class="active"' : '') }}>
                             <a href="{{ url ('home') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        @if(Auth::user('type')!=='admin')
+                        
                         <li {{ (Request::is('*customer') ? 'class="active"' : '') }}>
                             <a href="{{ url ('customer') }}"><i class="fa fa-users fa-fw"></i> Customers</a>
                         
-                        @endif
+                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('*sources') ? 'class="active"' : '') }}>
