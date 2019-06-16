@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
-@section('page_heading','CUSTOMERS')
-@section('section')
+@extends('layouts.blank')
+
+@section('content')
 @if(Auth::user('type')=='admin')  
 <a href="{{ route('customer.create')}}" class='btn pull-right btn-lg btn-info'>Add new Customer</a>
 @endif

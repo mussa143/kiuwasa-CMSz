@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
+@extends('layouts.blank')
 @section('page_heading','Edit Customer')
-@section('section')
+@section('content')
 <div class="col-md-8">
       @if(Session::has('flash_message'))
     <div class="alert alert-success">

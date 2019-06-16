@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
-@section('page_heading','Water Supply Zone')
-@section('section')
+@extends('layouts.blank')
+
+@section('content')
 <div class="row">
 @if(Session::has('flash_message'))
     <div class="alert alert-success">

@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
-@section('page_heading','Revenue Payment edit')
-@section('section')
+@extends('layouts.blank')
+
+@section('content')
 <a href="{{ route('revenue')}}" class='btn btn-primary'>BACK</a>
       <div class="col-md-8">
       @if(Session::has('flash_message'))

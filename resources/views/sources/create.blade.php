@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
-@section('page_heading','Add Water source')
-@section('section')
+@extends('layouts.content')
+
+@section('content')
       <div class="col-md-8">
       @if(Session::has('flash_message'))
     <div class="alert alert-success">

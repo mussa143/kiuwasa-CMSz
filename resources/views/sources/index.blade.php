@@ -1,18 +1,21 @@
-@extends('layouts.dashboard')
-@section('page_heading','Water Sources')
-@section('section')
+@extends('layouts.blank')
+
+@section('content')
 <div class="row">
 @if(Session::has('flash_message'))
     <div class="alert alert-success">
         {{ Session::get('flash_message') }}
     </div>
 @endif
+<h2>Water Production</h2> <br><br>
+<hr class="devider"> 
 <a href="{{ route('source.create')}}" class='btn btn-primary'>Add new Water Source</a>
-	<div class="col-sm-12">
+
+<div class="col-sm-12">
     <h3>Available Water Sources</h3>
     <div class="card-body">
      <div class="table-responsive">
-     <table class="table table-bordered" style="width:80%">
+     <table class="table table-bordered" >
 	<thead class=" text-primary">
 		<tr>
 			<th>S/N</th>
@@ -32,8 +35,8 @@
             <td>{{ $source->qty}}</td>
             <td>{{ $source->updated_at}}</td>
             <td style="width:20%">
-            <a href="{{ route('source.show', $source->id) }}" class='btn btn-success pull-right fa fa-play btn-s'> view</a>
-            <a href="{{ route('source.edit', $source->id) }}" class='btn btn-warning pull-right fa fa-edit btn-s'> edit</a>
+            <a href="{{ route('source.show', $source->id) }}" class='btn btn-success pull-right fa fa-play btn-xs'> view</a>
+            <a href="{{ route('source.edit', $source->id) }}" class='btn btn-warning pull-right fa fa-edit btn-xs'> edit</a>
 			<td><form action="{{ route('source.destroy', $source->id)}}" method="post">
                   @csrf
                   @method('DELETE')

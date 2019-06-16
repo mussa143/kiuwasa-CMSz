@@ -30,6 +30,7 @@ Route::resource('source','SourcesController');
 Route::resource('revenue','RevenueController');
 Route::resource('rcategory','RcategoriesController');
 Route::resource('zone','ZonesController');
+Route::resource('expenditure','ExpendituresController');
 
 
 Route::get('/revenue', 'RevenueController@index')->name('revenue');
