@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(4);
+        $customers = Customer::paginate(10);
     
             return view('customer.index', compact('customers'));
     }
@@ -39,11 +39,15 @@ class CustomerController extends Controller
     {
         $request->validate([
             'cname'=>'required',
+            'phone'=>'required',
+            'acc'=>'required',
             'adress'=> 'required',
             'zone' => 'required'
           ]);
           $customer = new Customer([
             'cname' => $request->get('cname'),
+            'phone' => $request->get('phone'),
+            'acc' => $request->get('acc'),
             'adress'=> $request->get('adress'),
             'zone'=> $request->get('zone')
           ]);

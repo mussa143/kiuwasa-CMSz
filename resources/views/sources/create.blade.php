@@ -1,4 +1,4 @@
-@extends('layouts.content')
+@extends('layouts.blank')
 
 @section('content')
       <div class="col-md-8">
