@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Expenditure extends Model
 {
   
@@ -12,5 +13,9 @@ class Expenditure extends Model
     
     public function revenue(){
         return $this::belongsTo('\App\Revenue','revenue_id');
+    }
+
+    public function exs(){
+        return $this::belongsTo('\App\Ex','exs_id');
     }
 }

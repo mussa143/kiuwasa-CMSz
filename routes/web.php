@@ -31,10 +31,11 @@ Route::resource('revenue','RevenueController');
 Route::resource('rcategory','RcategoriesController');
 Route::resource('zone','ZonesController');
 Route::resource('expenditure','ExpendituresController');
-
+Route::resource('ex','ExController');
 
 Route::get('/revenue', 'RevenueController@index')->name('revenue');
-Route::get('/search','SearchController@searchs');
+Route::get('/searchs','SearchController@searchs');
+Route::get('/search','SearchController@search');
 Route::get('/revsearch','SearchController@searchr');
 
 

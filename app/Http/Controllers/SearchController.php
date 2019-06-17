@@ -14,12 +14,11 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function searchs(Request $request)
+    public function search(Request $request)
     {
         $search = $request->get('search');
-$customers = Customer::where('cname','like','%'.$search.'%')->paginate(10);
-
-return view('search', compact('customers',));
+$customers = Customer::where('zone','like','%'.$search.'%')->paginate(10);
+return view('customer.index', compact('customers',));
     }
 
     public function searchr(Request $request)

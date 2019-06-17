@@ -97,11 +97,15 @@ class CustomerController extends Controller
         $request->validate([
             'cname'=>'required',
             'adress'=> 'required',
+            'phone'=> 'required | min:10',
+            'acc'=> 'required',
             'zone' => 'required'
           ]);
     
           $customer = Customer::find($id);
           $customer->cname = $request->get('cname');
+          $customer->phone = $request->get('phone');
+          $customer->acc = $request->get('acc');
           $customer->adress = $request->get('adress');
           $customer->zone = $request->get('zone');
           $customer->save();

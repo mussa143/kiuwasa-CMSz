@@ -7,18 +7,72 @@
         {{ Session::get('flash_message') }}
     </div>
 @endif
-      <form action="{{ route('customer.update',$customers->id)}}" method="post">
-      @method('Put')
-        @csrf
-        <label for="cname">Name:</label>
-      <input type="text" name="cname" Value="{{$customers->cname}}" class="form-control"> <BR>
-      <label for="address">Address:</label>
-      <input type="text" name="adress" value="{{$customers->adress}}" class="form-control"> <BR>
-      <label for="cname">Zone:</label>
-      <input type="text" name="zone" value="{{$customers->zone}}" class="form-control"> <BR>
-      <a href="{{route('customer.edit',$customers->id)}}" class="btn btn-primary" >UPDATE</a>
-      <a href="{{route('customer.destroy',$customers->id)}}" class="btn btn-danger pull-right" >DELETE</a>
-            </form>
+<div class="row">
+<a href="/customer" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-600">
+                      <i class="fas fa-arrow-left"></i>
+                    </span>
+                    <span class="text">Back</span>
+                  </a>
+</div>  
+      <table style="width:80%">
+            <thead>
+            <h3 class="text-primary">{{ $customers->cname }}'s Details</h3>
+            </thead>
+            <tbody style="font-size:150%" >
+                  <tr style="border-bottom: 1px solid gray">
+                  <td>
+                    <label style="color:black;font-weight:600;" for="name">Name: </label>
+                  </td>
+                  <td>{{ $customers->cname }}</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid gray">
+                  <td>
+                    <label style="color:black;font-weight:600;" for="phone">Phone: </label>
+                  </td>
+                  <td>{{ $customers->phone }}</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid gray">
+                  <td>
+                    <label style="color:black;font-weight:600;" for="acc">Account Number: </label>
+                  </td>
+                  <td>{{ $customers->acc }}</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid gray">
+                  <td>
+                    <label style="color:black;font-weight:600;" for="Address">Address: </label>
+                  </td>
+                  <td>{{ $customers->adress }}</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid gray">
+                  <td>
+                    <label style="color:black;font-weight:600;" for="Zone">Zone: </label>
+                  </td>
+                  <td>{{ $customers->zone }}</td>
+                  </tr>
+                  <tr class="disabled">
+                  <td>
+                  <br>
+                  </td>
+                  <td>
+                  <br>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td>
+                  <a href="{{ route('customer.edit', $customers->id) }}" class='btn btn-primary pull-right fa fa-edit btn-s'> edit</a>
+                  </td>
+                  <td>
+                  <form action="{{ route('customer.destroy', $customers->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger fa fa-eraser btn-s" type="submit">Delete</button>
+                </form>
+                  </td>
+                  </tr>
+            </tbody>
+
+      </table>
       </div>                 
             
 @stop

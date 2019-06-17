@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>Kiuwasa </title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" href="{{ asset("vendor/fontawesome-free/css/all.min.css") }}" />
@@ -61,7 +61,7 @@
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item active">
 <a class="nav-link" href="{{ url('/source')}}">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <i class="fas fa-fw fa-file-alt text-white"></i>
     <span>Water Production</span></a>
 </li>
 
@@ -71,7 +71,7 @@
 <!-- Heading -->
 <li class="nav-item active">
   <a class="nav-link" href="{{ url('/revenue')}}">
-    <i class="fas fa-fw fa-money"></i>
+    <i class="fas fa-fw fa-cash"></i>
     <span>Revenue</span></a>
 </li>
 
@@ -80,7 +80,7 @@
 <!-- Nav Item - Charts -->
 <li class="nav-item active">
   <a class="nav-link" href="{{ url('/expenditure')}}">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <i class="fas fa-fw fa fa-bars"></i>
     <span>Expenditures</span></a>
 </li>
 
@@ -254,7 +254,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name  }}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->

@@ -7,11 +7,11 @@
         {{ Session::get('flash_message') }}
     </div>
 @endif
-      <form action="{{ route('zone.store')}}" method='POST'>
+      <form action="{{ route('ex.store')}}" method='POST'>
       @method('POST')
         @csrf
-        <label for="zname">Enter the Zone name:</label>
-      <input type="text" name="zname" placeholder="Zone Name" class="form-control"> <BR>
+        <label for="exname">Enter the Zone name:</label>
+      <input type="text" name="exname" placeholder="expenditure type Name" class="form-control"> <BR>
       <input type="submit" class="btn btn-primary" value="ADD">
       <input type="reset" class="btn btn-warning pull-right" value="CANCEL">
       </form>

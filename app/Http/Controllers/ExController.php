@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Expenditure;
+use App\Ex;
 
-class ExpendituresController extends Controller
+class ExController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ExpendituresController extends Controller
      */
     public function index()
     {
-        $expenditures = Expenditure::paginate(10);
+        $expenditures= Ex::paginate(10);
     
-        return view('expenditure.index', compact('expenditures'));
+        return view('ex.index', compact('expenditures'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ExpendituresController extends Controller
      */
     public function create()
     {
-        //
+        return view('ex.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class ExpendituresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'exname'=>'required',
+            
+          ]);
+          $expenditures = new Ex([
+            'exname' => $request->get('exname'),
+           
+          ]);
+          $expenditures->save();
+
+          return redirect('/ex')->with('flash_message', 'Expenditure Record has been added!');
+    
+
     }
 
     /**
