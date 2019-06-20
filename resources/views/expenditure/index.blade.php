@@ -26,7 +26,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Our Customers</h1>
+<h1 class="h3 mb-2 text-gray-800">Expenditures</h1>
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/search">
             <div class="input-group">
               <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search Record by Monthy" aria-label="Search" aria-describedby="basic-addon2">
@@ -45,6 +45,7 @@
     <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
   </div>
   <div class="card-body">
+  <h4 style="text-align:center">Total = {{ $balance }} TSH</h4>
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -53,6 +54,7 @@
             <th>Spent For</th>
             <th>Monthy</th>
             <th>Amount</th>
+            <th>Inserted By</th>
             <td>Action</td>
           </tr>
         </thead>
@@ -61,8 +63,9 @@
         <tr>
             <td>{{ $expenditure->id}}</td>
             <td>{{ $expenditure->type}}</td>
-            <td>{{ $expenditure->Date}}</td>
-            <td>{{ $expenditure->amount}}</td>
+            <td>{{ $expenditure->monthy}}</td>
+            <td>{{ $expenditure->amount}} TSH</td>
+            <td>{{ $expenditure->staff}}</td>
             <td>
             <a href="{{ route('expenditure.show', $expenditure->id) }}" class='btn btn-primary pull-right fa fa-eye btn-sm'> View</a>
             <a href="{{ route('expenditure.edit', $expenditure->id) }}" class='btn btn-warning pull-right fa fa-edit btn-sm'> edit</a>

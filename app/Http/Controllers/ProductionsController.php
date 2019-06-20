@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Expenditure;
-use App\Ex;
-use App\Customer;
-use DB;
 
-class ExpendituresController extends Controller
+class ProductionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +13,7 @@ class ExpendituresController extends Controller
      */
     public function index()
     {
-        $balance = DB::table('expenditures')->sum('amount');
-        $expenditures = Expenditure::paginate(10);
-    
-        return view('expenditure.index', compact('expenditures','balance'));
+        //
     }
 
     /**
@@ -30,9 +23,7 @@ class ExpendituresController extends Controller
      */
     public function create()
     {
-        $rows = Ex::all();
-        $cus = Customer::all();
-        return view('expenditure.create', compact('rows','cus'));
+        //
     }
 
     /**
@@ -43,21 +34,7 @@ class ExpendituresController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'type'=>'required',
-            'monthy'=>'required',
-            'amount'=>'required',
-            'staff'=> 'required',
-          ]);
-          $expend = new Expenditure([
-            'type' => $request->get('type'),
-            'monthy' => $request->get('monthy'),
-            'amount' => $request->get('amount'),
-            'staff'=> $request->get('staff'),
-          ]);
-          $expend->save();
-
-          return redirect('/expenditure')->with('flash_message', 'Expenditure info has been added! Thank you');
+        //
     }
 
     /**

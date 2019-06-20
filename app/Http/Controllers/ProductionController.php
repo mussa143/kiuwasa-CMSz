@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sources;
 use App\Water;
-class SourcesController extends Controller
+
+class ProductionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,7 @@ class SourcesController extends Controller
      */
     public function index()
     {
-        $sources = Sources::paginate(4);
-        return view('sources.index', compact('sources'));
+        //
     }
 
     /**
@@ -25,10 +25,10 @@ class SourcesController extends Controller
      */
     public function create()
     {
-        return view('sources.create');
+        $waters = Sources::all();
+        return view('sources.createm')->withwaters($waters);
     }
 
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -38,19 +38,20 @@ class SourcesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type'=>'required',
-            'sname'=>'required',
+            
+            'monthy'=>'required',
             'capacity'=> 'required',
+            'source'=> 'required',
             
           ]);
-          $source= new Sources([
-            'type' => $request->get('type'),
-            'sname' => $request->get('sname'),
-            'qty'=> $request->get('capacity'),
+          $water= new Water([
+            'monthy' => $request->get('monthy'),
+            'source' => $request->get('source'),
+            'capacity'=> $request->get('capacity'),
           ]);
-          $source->save();
-
-          return redirect('/source')->with('flash_message', 'New Source has been added!');
+          $water->save();
+          $waters = Sources::all();
+          return view('sources.createm')->withwaters($waters,'flash_message', 'Your data has been added successfuly!');
     }
 
     /**
@@ -61,10 +62,7 @@ class SourcesController extends Controller
      */
     public function show($id)
     {
-        $sources = Sources::findOrFail($id);
-        $monthy = Water::all()->where('source',$id);
-
-        return view('sources.show',compact('sources','monthy'));
+        //
     }
 
     /**
@@ -75,9 +73,7 @@ class SourcesController extends Controller
      */
     public function edit($id)
     {
-        $data = Sources::findOrFail($id);
-
-        return view('sources.edit')->withdata($data);
+        //
     }
 
     /**
@@ -89,19 +85,7 @@ class SourcesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'type'=>'required',
-            'sname'=>'required',
-            'capacity'=> 'required',
-            
-          ]);
-          $source= Sources::find($id);
-          $source->type = $request->get('type');
-          $source->sname = $request->get('sname');
-          $source->qty = $request->get('capacity');
-          $source->save();
-
-          return redirect('/source')->with('flash_message', 'Info Has been changed!');
+        //
     }
 
     /**
@@ -112,9 +96,6 @@ class SourcesController extends Controller
      */
     public function destroy($id)
     {
-        $sources = Sources::find($id);
-        $sources->delete();
-   
-        return redirect('/source')->with('flash_message', 'Source has been deleted Successfully');
+        //
     }
 }

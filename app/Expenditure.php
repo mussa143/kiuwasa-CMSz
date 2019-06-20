@@ -10,6 +10,10 @@ class Expenditure extends Model
   
 
     protected $table = 'expenditures';
+
+    protected $fillable = [
+        'type','monthy','amount','staff',
+    ];
     
     public function revenue(){
         return $this::belongsTo('\App\Revenue','revenue_id');

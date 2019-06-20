@@ -33,7 +33,11 @@ Route::resource('zone','ZonesController');
 Route::resource('expenditure','ExpendituresController');
 Route::resource('ex','ExController');
 
-Route::get('/revenue', 'RevenueController@index')->name('revenue');
+Route::resource('prod','ProductionController');
+
+
+
+
 Route::get('/searchs','SearchController@searchs');
 Route::get('/search','SearchController@search');
 Route::get('/revsearch','SearchController@searchr');

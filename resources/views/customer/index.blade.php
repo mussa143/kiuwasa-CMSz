@@ -67,14 +67,14 @@
             <td>{{ $customer->acc}}</td>
             <td>{{ $customer->adress}}</td>
             <td>{{ $customer->zone}}</td>
-            <td>
+            <td style='width:20%'>
             <a href="{{ route('customer.show', $customer->id) }}" class='btn btn-primary pull-right fa fa-eye btn-sm'> View</a>
             <a href="{{ route('customer.edit', $customer->id) }}" class='btn btn-warning pull-right fa fa-edit btn-sm'> edit</a>
 			<td>
             <form action="{{ route('customer.destroy', $customer->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger fa fa-cross btn-sm" type="submit">Delete</button>
+                  <button class="btn btn-danger fa fa-trash btn-sm" type="submit">Delete</button>
                 </form></td>
             </td>
         </tr>
