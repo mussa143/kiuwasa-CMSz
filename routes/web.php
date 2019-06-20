@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $revenue = DB::table('revenue')->sum('amount');
+    $expenditure = DB::table('expenditures')->sum('amount');
+    return view('welcome', compact('revenue','expenditure'));
 });
 
 Route::get('/blank', function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        return view('home');
+        $revenue = DB::table('revenue')->sum('amount');
+        $expenditure = DB::table('expenditures')->sum('amount');
+        return view('home', compact('revenue','expenditure'));
     }
 }

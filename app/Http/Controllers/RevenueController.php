@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Revenue;
 use App\Rcategory;
 use App\Customer;
+use DB;
 
 class RevenueController extends Controller
 {
@@ -17,7 +18,8 @@ class RevenueController extends Controller
     public function index()
     {
         $revenues = Revenue::paginate(4);
-        return view('revenue.index', compact('revenues'));
+        $balance = DB::table('revenue')->sum('amount');
+        return view('revenue.index', compact('revenues','balance'));
     }
 
     /**
@@ -76,8 +78,10 @@ class RevenueController extends Controller
     public function edit($id)
     {
         $revenues = Revenue::findOrFail($id);
+        $category = Rcategory::all();
+        $cus = Customer::all();
 
-        return view('revenue.edit')->withrevenues($revenues);
+        return view('revenue.edit', compact('revenues','category','cus'));
     }
 
     /**
@@ -101,7 +105,7 @@ class RevenueController extends Controller
           $revenues->customer = $request->get('customer');
           $revenues->save();
     
-          return redirect()->back()->with('flash_message', 'info has been updated!');
+          return redirect('/revenue')->with('flash_message', 'info has been updated!');
     }
 
     /**
