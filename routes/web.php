@@ -21,6 +21,9 @@ Route::get('/blank', function () {
     return view('blank');
 });
 
+	
+Route::get('charts', 'ChartController@index');
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'admin']], function() {

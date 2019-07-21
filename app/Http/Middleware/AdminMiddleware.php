@@ -34,9 +34,14 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->getUser()->type !== "admin") {
-            abort(403, 'Unauthorized action.');
-        }
-        return $next($request);
+        if ($request->user() && $request->user()->type != ‘admin’)
+
+{
+
+return new Response(view(‘unauthorized’)->with(‘role’, ‘ADMIN’));
+
+}
+
+return $next($request);
     }
 }
