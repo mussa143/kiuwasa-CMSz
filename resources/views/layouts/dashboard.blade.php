@@ -52,10 +52,15 @@
       <!-- Heading -->
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Customers</span></a>
+          <i class="fas fa-fw fa-user"></i>
+          <span>Users</span></a>
       </li>
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider">    
+      <li class="nav-item active">
+       <a class="nav-link" href="{{ url('/customer')}}">
+      <i class="fas fa-fw fa-users"></i>
+    <span>Customers</span></a>
+</li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item active">

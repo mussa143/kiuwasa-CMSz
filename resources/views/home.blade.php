@@ -53,7 +53,14 @@
       <!-- Heading -->
       <li class="nav-item active">
         <a class="nav-link" href="{{ url('/customer')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-user"></i>
+          <span>Users</span></a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/customer')}}">
+          <i class="fas fa-fw fa-users"></i>
           <span>Customers</span></a>
       </li>
       <hr class="sidebar-divider">
@@ -61,7 +68,7 @@
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item active">
 		<a class="nav-link" href="{{ url('/source')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-file"></i>
           <span>Water Production</span></a>
       </li>
 
@@ -71,7 +78,7 @@
       <!-- Heading -->
       <li class="nav-item active">
         <a class="nav-link" href="{{ url('/revenue')}}">
-          <i class="fas fa-fw fa-money"></i>
+          <i class="fas fa-fw fa-folder"></i>
           <span>Revenue</span></a>
       </li>
 
@@ -80,7 +87,7 @@
       <!-- Nav Item - Charts -->
       <li class="nav-item active">
         <a class="nav-link" href="{{ url('/expenditure')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-eraser"></i>
           <span>Expenditures</span></a>
       </li>
 

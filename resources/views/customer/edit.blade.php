@@ -13,7 +13,7 @@
         <label for="cname">Name:</label>
       <input type="text" name="cname" Value="{{$customers->cname}}" class="form-control" required> <BR>
       <label for="cname">Phone: (not less than ten Digits )</label>
-      <input type="text" name="phone" Value="{{$customers->phone}}"  class="form-control" required> <BR>
+      <input type="text" name="phone" Value="{{$customers->phhone}}"  class="form-control" required> <BR>
       <label for="cname">Account #:</label>
       <input type="text" name="acc" Value="{{$customers->acc}}" class="form-control" required> <BR>
       <label for="address">Address:</label>

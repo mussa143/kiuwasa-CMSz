@@ -55,9 +55,15 @@
 <li class="nav-item active">
   <a class="nav-link" href="{{ url('/customer')}}">
     <i class="fas fa-fw fa-users"></i>
-    <span>Customers</span></a>
+    <span>Users</span></a>
 </li>
 @endif
+<hr class="sidebar-divider">
+<li class="nav-item active">
+  <a class="nav-link" href="{{ url('/customer')}}">
+    <i class="fas fa-fw fa-user"></i>
+    <span>Customers</span></a>
+</li>
 <hr class="sidebar-divider">
 
 <!-- Nav Item - Utilities Collapse Menu -->
@@ -73,7 +79,7 @@
 <!-- Heading -->
 <li class="nav-item active">
   <a class="nav-link" href="{{ url('/revenue')}}">
-    <i class="fas fa-fw fa-cash"></i>
+    <i class="fas fa-fw fa-folder"></i>
     <span>Revenue</span></a>
 </li>
 
